@@ -13,8 +13,8 @@ import android.widget.Toolbar;
 
 import com.example.androidproject.R;
 import com.example.androidproject.SQLiteDBHelper;
-import com.example.androidproject.ui.home.HomeActivity;
 import com.example.androidproject.ui.register.RegisterActivity;
+import com.example.androidproject.ui.shops.ShopsActivity;
 
 public class LoginActivity extends AppCompatActivity {
     EditText username, password;
@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                     Boolean checkUserPass = db.checkUsernameAndPassword(user, pass);
                     if (checkUserPass == true) {
                         Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), ShopsActivity.class);
                         startActivity(intent);
                     } else {
                         Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();

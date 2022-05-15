@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.example.androidproject.R;
 import com.example.androidproject.SQLiteDBHelper;
-import com.example.androidproject.ui.home.HomeActivity;
 import com.example.androidproject.ui.login.LoginActivity;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -50,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Boolean insert = db.insertData(user, pass);
                             if (insert == true) {
                                 Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
