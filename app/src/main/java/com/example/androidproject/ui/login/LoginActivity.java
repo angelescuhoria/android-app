@@ -1,8 +1,13 @@
 package com.example.androidproject.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +38,12 @@ public class LoginActivity extends AppCompatActivity {
         login = (Button) findViewById(R.id.login_button);
         db = new SQLiteDBHelper(this);
 
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("My notification","my notification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +55,14 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     Boolean checkUserPass = db.checkUsernameAndPassword(user, pass);
                     if (checkUserPass == true) {
+                        NotificationCompat.Builder builder = new NotificationCompat.Builder(LoginActivity.this,"My notification")
+                                .setSmallIcon(R.drawable.ic_baseline_add_shopping_cart_24)
+                                .setContentTitle("Shopify")
+                                .setContentText("You have logged in succesfully")
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+                        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(LoginActivity.this);
+                        managerCompat.notify(1,builder.build());
                         Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), ShopsActivity.class);
                         startActivity(intent);
