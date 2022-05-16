@@ -29,4 +29,10 @@
         android:label="@string/menu_shops"
         tools:layout="@layout/activity_shops" />
 
+    <activity
+        android:id="@+id/nav_megaimage"
+        android:name="com.example.androidproject.ui.megaimage.MegaImageActivity"
+        android:label="Mega Image"
+        tools:layout="@layout/activity_mega_image" />
+
 </navigation>

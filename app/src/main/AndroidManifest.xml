@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProject">
         <activity
+            android:name=".ui.megaimage.MegaImageActivity"
+            android:label="@string/title_activity_mega_image"
+            android:exported="false" />
+        <activity
             android:name=".ui.shops.ShopsActivity"
             android:exported="false"
             android:label="@string/title_activity_shops"

@@ -34,15 +34,65 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_scrolling" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".ui.shops.ShopsActivity"
+        tools:showIn="@layout/activity_shops">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/fab_margin"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/mega_image"
+                android:layout_width="match_parent"
+                android:layout_height="470dp"
+                android:layout_marginTop="50dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/megaimage" />
+
+            <Button
+                android:id="@+id/mega_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="getToMegaImage"
+                android:text="To Mega Image" />
+
+            <ImageView
+                android:id="@+id/auchan"
+                android:layout_width="match_parent"
+                android:layout_height="492dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/auchan" />
+
+            <Button
+                android:id="@+id/auchan_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To Auchan" />
+
+            <ImageView
+                android:id="@+id/carrefour"
+                android:layout_width="match_parent"
+                android:layout_height="428dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/carrefour" />
+
+            <Button
+                android:id="@+id/carrefour_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To Carrefour" />
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
