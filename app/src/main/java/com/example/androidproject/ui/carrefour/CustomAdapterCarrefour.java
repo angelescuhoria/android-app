@@ -1,12 +1,15 @@
 package com.example.androidproject.ui.carrefour;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidproject.R;
@@ -16,6 +19,7 @@ import java.util.ArrayList;
 
 public class CustomAdapterCarrefour extends RecyclerView.Adapter<CustomAdapterCarrefour.MyViewHolder> {
     public Context context;
+    SharedPreferences sp;
     public ArrayList product_id, product_name, product_type, product_price;
 
     CustomAdapterCarrefour(Context context,
@@ -44,6 +48,21 @@ public class CustomAdapterCarrefour extends RecyclerView.Adapter<CustomAdapterCa
         holder.product_name.setText(String.valueOf(product_name.get(position)));
         holder.product_type.setText(String.valueOf(product_type.get(position)));
         holder.product_price.setText(String.valueOf(product_price.get(position)));
+        sp = context.getSharedPreferences("ProductsPrefs", Context.MODE_PRIVATE);
+        holder.carrefourCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Added to your list!", Toast.LENGTH_SHORT).show();
+
+                SharedPreferences.Editor editor = sp.edit();
+
+                editor.putString("p_id", String.valueOf(product_id.get(position)));
+                editor.putString("p_name", String.valueOf(product_name.get(position)));
+                editor.putString("p_type", String.valueOf(product_type.get(position)));
+                editor.putString("p_price", String.valueOf(product_price.get(position)));
+                editor.apply();
+            }
+        });
     }
 
     @Override
@@ -53,6 +72,7 @@ public class CustomAdapterCarrefour extends RecyclerView.Adapter<CustomAdapterCa
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView product_id, product_name, product_type, product_price;
+        CardView carrefourCard;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,6 +80,7 @@ public class CustomAdapterCarrefour extends RecyclerView.Adapter<CustomAdapterCa
             product_name = itemView.findViewById(R.id.product_name);
             product_type = itemView.findViewById(R.id.product_type);
             product_price = itemView.findViewById(R.id.product_price);
+            carrefourCard = itemView.findViewById(R.id.carrefourCard);
         }
     }
 }
