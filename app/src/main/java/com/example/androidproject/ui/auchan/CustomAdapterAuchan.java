@@ -1,5 +1,6 @@
 package com.example.androidproject.ui.auchan;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,14 @@ public class CustomAdapterAuchan extends RecyclerView.Adapter<CustomAdapterAucha
         this.product_type = product_type;
         this.product_price = product_price;
     }
-
+    @SuppressLint("NotifyDataSetChanged")
+    public void setFilter(ArrayList<String> lst, ArrayList<String> lst2, ArrayList<String> lst3, ArrayList<String> lst4){
+        product_name = lst;
+        product_price = lst2;
+        product_id = lst3;
+        product_type = lst4;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public CustomAdapterAuchan.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

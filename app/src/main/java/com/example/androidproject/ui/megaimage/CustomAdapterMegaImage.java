@@ -1,6 +1,8 @@
 package com.example.androidproject.ui.megaimage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.androidproject.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomAdapterMegaImage extends RecyclerView.Adapter<CustomAdapterMegaImage.MyViewHolder> {
     public Context context;
@@ -29,6 +32,14 @@ public class CustomAdapterMegaImage extends RecyclerView.Adapter<CustomAdapterMe
         this.product_price = product_price;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    public void setFilter(ArrayList<String> lst, ArrayList<String> lst2, ArrayList<String> lst3, ArrayList<String> lst4){
+        product_name = lst;
+        product_price = lst2;
+        product_id = lst3;
+        product_type = lst4;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -61,4 +72,5 @@ public class CustomAdapterMegaImage extends RecyclerView.Adapter<CustomAdapterMe
             product_price = itemView.findViewById(R.id.product_price);
         }
     }
+
 }

@@ -7,10 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.androidproject.ui.megaimage.MegaImageActivity;
+
 public class AddActivity extends AppCompatActivity {
 
     EditText name_input, type_input, price_input;
     Button add_button;
+    MegaImageActivity megaImageActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class AddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SQLiteProductsDBHelper db = new SQLiteProductsDBHelper(AddActivity.this);
                 db.addProduct(name_input.getText().toString().trim(), type_input.getText().toString().trim(), Integer.valueOf(price_input.getText().toString().trim()));
+                finish();
             }
         });
     }
