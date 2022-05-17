@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -65,7 +67,45 @@ public class AuchanActivity extends AppCompatActivity {
         recyclerView.setAdapter(customAdapterAuchan);
         recyclerView.setLayoutManager(new LinearLayoutManager(AuchanActivity.this));
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.searchmenu,menu);
 
+        MenuItem search = menu.findItem(R.id.searchbutton);
+        androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) search.getActionView();
+        searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                s = s.toLowerCase();
+//                List<Pair<String, Pair<String, Integer>>> newList = new ArrayList<>() ;
+                ArrayList<String> newList = new ArrayList<>();
+                ArrayList<String> newList2 = new ArrayList<>();
+                ArrayList<String> newList3 = new ArrayList<>();
+                ArrayList<String> newList4 = new ArrayList<>();
+                for(int i = 0; i< product_name.size(); i++)
+                {
+                    String name = product_name.get(i);
+                    if(name.toLowerCase().contains(s))
+                    {
+                        newList.add(name);
+                        newList2.add(product_price.get(i));
+                        newList3.add(product_id.get(i));
+                        newList4.add(product_type.get(i));
+                    }
+
+                }
+                customAdapterAuchan.setFilter(newList,newList2,newList3,newList4);
+                return false;
+            }
+        });
+        return true;
+    }
     public void storeData() {
         Cursor cursor = db.readAllDataAuchan();
         if (cursor.getCount() == 0) {

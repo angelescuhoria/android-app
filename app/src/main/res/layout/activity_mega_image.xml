@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.megaimage.MegaImageActivity">
-
     <TextView
         android:id="@+id/shop_title"
         android:layout_width="match_parent"
