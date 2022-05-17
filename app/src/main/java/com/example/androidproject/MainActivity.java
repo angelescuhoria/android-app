@@ -58,11 +58,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Check out this Application!");
-        intent.putExtra(Intent.EXTRA_TEXT,"Your Application link here");
-        startActivity(Intent.createChooser(intent,"Share via"));
+        if (item.getItemId() == R.id.shareButton) {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Check out this Application!");
+            intent.putExtra(Intent.EXTRA_TEXT,"Your Application link here");
+            startActivity(Intent.createChooser(intent,"Share via"));
+        }
         return super.onOptionsItemSelected(item);
     }
 

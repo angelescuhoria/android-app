@@ -74,6 +74,7 @@
                 android:id="@+id/auchan_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="getToAuchan"
                 android:text="To Auchan" />
 
             <ImageView
@@ -88,6 +89,7 @@
                 android:id="@+id/carrefour_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="getToCarrefour"
                 android:text="To Carrefour" />
 
         </LinearLayout>

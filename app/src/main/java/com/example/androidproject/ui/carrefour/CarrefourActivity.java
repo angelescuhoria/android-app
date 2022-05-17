@@ -1,4 +1,4 @@
-package com.example.androidproject.ui.megaimage;
+package com.example.androidproject.ui.carrefour;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,22 +14,24 @@ import com.example.androidproject.AddActivity;
 import com.example.androidproject.R;
 import com.example.androidproject.SQLiteProductsDBHelper;
 import com.example.androidproject.ui.list.ProductListActivity;
+import com.example.androidproject.ui.megaimage.CustomAdapterMegaImage;
+import com.example.androidproject.ui.megaimage.MegaImageActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class MegaImageActivity extends AppCompatActivity {
+public class CarrefourActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     FloatingActionButton add_button, list_button;
     SQLiteProductsDBHelper db;
     ArrayList<String> product_id, product_name, product_type, product_price;
-    CustomAdapterMegaImage customAdapterMegaImage;
+    CustomAdapterCarrefour customAdapterCarrefour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mega_image);
+        setContentView(R.layout.activity_carrefour);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -37,7 +39,7 @@ public class MegaImageActivity extends AppCompatActivity {
         list_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MegaImageActivity.this, ProductListActivity.class);
+                Intent intent = new Intent(CarrefourActivity.this, ProductListActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,12 +48,12 @@ public class MegaImageActivity extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MegaImageActivity.this, AddActivity.class);
+                Intent intent = new Intent(CarrefourActivity.this, AddActivity.class);
                 startActivity(intent);
             }
         });
 
-        db = new SQLiteProductsDBHelper(MegaImageActivity.this);
+        db = new SQLiteProductsDBHelper(CarrefourActivity.this);
         product_id = new ArrayList<>();
         product_name = new ArrayList<>();
         product_type = new ArrayList<>();
@@ -59,9 +61,9 @@ public class MegaImageActivity extends AppCompatActivity {
 
         storeData();
 
-        customAdapterMegaImage = new CustomAdapterMegaImage(MegaImageActivity.this, product_id, product_name, product_type, product_price);
-        recyclerView.setAdapter(customAdapterMegaImage);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MegaImageActivity.this));
+        customAdapterCarrefour = new CustomAdapterCarrefour(CarrefourActivity.this, product_id, product_name, product_type, product_price);
+        recyclerView.setAdapter(customAdapterCarrefour);
+        recyclerView.setLayoutManager(new LinearLayoutManager(CarrefourActivity.this));
 
     }
 

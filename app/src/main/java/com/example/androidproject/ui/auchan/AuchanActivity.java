@@ -1,4 +1,4 @@
-package com.example.androidproject.ui.megaimage;
+package com.example.androidproject.ui.auchan;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,22 +14,24 @@ import com.example.androidproject.AddActivity;
 import com.example.androidproject.R;
 import com.example.androidproject.SQLiteProductsDBHelper;
 import com.example.androidproject.ui.list.ProductListActivity;
+import com.example.androidproject.ui.megaimage.CustomAdapterMegaImage;
+import com.example.androidproject.ui.megaimage.MegaImageActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class MegaImageActivity extends AppCompatActivity {
+public class AuchanActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     FloatingActionButton add_button, list_button;
     SQLiteProductsDBHelper db;
     ArrayList<String> product_id, product_name, product_type, product_price;
-    CustomAdapterMegaImage customAdapterMegaImage;
+    CustomAdapterAuchan customAdapterAuchan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mega_image);
+        setContentView(R.layout.activity_auchan);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -37,7 +39,7 @@ public class MegaImageActivity extends AppCompatActivity {
         list_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MegaImageActivity.this, ProductListActivity.class);
+                Intent intent = new Intent(AuchanActivity.this, ProductListActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,12 +48,12 @@ public class MegaImageActivity extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MegaImageActivity.this, AddActivity.class);
+                Intent intent = new Intent(AuchanActivity.this, AddActivity.class);
                 startActivity(intent);
             }
         });
 
-        db = new SQLiteProductsDBHelper(MegaImageActivity.this);
+        db = new SQLiteProductsDBHelper(AuchanActivity.this);
         product_id = new ArrayList<>();
         product_name = new ArrayList<>();
         product_type = new ArrayList<>();
@@ -59,14 +61,13 @@ public class MegaImageActivity extends AppCompatActivity {
 
         storeData();
 
-        customAdapterMegaImage = new CustomAdapterMegaImage(MegaImageActivity.this, product_id, product_name, product_type, product_price);
-        recyclerView.setAdapter(customAdapterMegaImage);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MegaImageActivity.this));
-
+        customAdapterAuchan = new CustomAdapterAuchan(AuchanActivity.this, product_id, product_name, product_type, product_price);
+        recyclerView.setAdapter(customAdapterAuchan);
+        recyclerView.setLayoutManager(new LinearLayoutManager(AuchanActivity.this));
     }
 
     public void storeData() {
-        Cursor cursor = db.readAllDataMegaImage();
+        Cursor cursor = db.readAllDataAuchan();
         if (cursor.getCount() == 0) {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {

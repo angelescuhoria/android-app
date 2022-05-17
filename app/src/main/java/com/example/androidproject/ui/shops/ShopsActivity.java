@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import com.example.androidproject.R;
 import com.example.androidproject.databinding.ActivityShopsBinding;
+import com.example.androidproject.ui.auchan.AuchanActivity;
+import com.example.androidproject.ui.carrefour.CarrefourActivity;
 import com.example.androidproject.ui.login.LoginActivity;
 import com.example.androidproject.ui.megaimage.MegaImageActivity;
 import com.example.androidproject.ui.register.RegisterActivity;
@@ -37,7 +39,17 @@ public class ShopsActivity extends AppCompatActivity {
     }
 
     public void getToMegaImage(View v) {
-        Intent intent = new Intent(getApplicationContext(), MegaImageActivity.class);
+        Intent intent = new Intent(ShopsActivity.this, MegaImageActivity.class);
+        startActivity(intent);
+    }
+
+    public void getToAuchan(View v) {
+        Intent intent = new Intent(ShopsActivity.this, AuchanActivity.class);
+        startActivity(intent);
+    }
+
+    public void getToCarrefour(View v) {
+        Intent intent = new Intent(ShopsActivity.this, CarrefourActivity.class);
         startActivity(intent);
     }
 }
