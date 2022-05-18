@@ -27,6 +27,7 @@ public class ShopsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_shops);
 
         binding = ActivityShopsBinding.inflate(getLayoutInflater());
@@ -36,6 +37,7 @@ public class ShopsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = binding.toolbarLayout;
         toolBarLayout.setTitle(getTitle());
+
     }
 
     public void getToMegaImage(View v) {

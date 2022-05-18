@@ -4,9 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
+        <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/layout/activity_add.xml" value="0.264" />
         <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/layout/activity_auchan.xml" value="0.1" />
         <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/layout/activity_carrefour.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/layout/activity_main.xml" value="0.175" />
         <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/layout/activity_mega_image.xml" value="0.25" />
+        <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/layout/activity_product_list.xml" value="0.175" />
+        <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/layout/megaimage_row.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/menu/activity_main_drawer.xml" value="0.16054421768707483" />
         <entry key="..\:/Users/alexd/OneDrive/Desktop/Proiect_Android/android-app/app/src/main/res/menu/main.xml" value="0.25416666666666665" />

@@ -2,8 +2,8 @@
     <string name="app_name">AndroidProject</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Firebase Username</string>
-    <string name="nav_header_subtitle">Users email addresses from Firebase</string>
+    <string name="nav_header_title">Username</string>
+    <string name="nav_header_subtitle">Hello!</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
